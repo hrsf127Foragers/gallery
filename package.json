@@ -1,10 +1,11 @@
 {
   "name": "gallery",
   "version": "1.0.0",
-  "description": "hero gallery",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -13,24 +14,18 @@
   "keywords": [],
   "author": "Servio Lee",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hrsf127Foragers/gallery/issues"
-  },
-  "homepage": "https://github.com/hrsf127Foragers/gallery#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "morgan": "^1.10.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.0",
+    "mysql": "^2.13.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "babel-loader": "^8.1.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1"
   }
 }
