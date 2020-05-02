@@ -1,4 +1,4 @@
-const connection = require('database.js');
+const connection = require('./database.js');
 
 const randomNumberGenerator = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min); // 0 <= Math.random() < 1
@@ -15,7 +15,7 @@ const populateRestaurants = () => {
     let randomName = names[randomNumberGenerator(0, names.length)];
     let randomFoodType = foodTypes[randomNumberGenerator(0, foodTypes.length)];
     let randomStoreType = storeTypes[randomNumberGenerator(0, storeTypes.length)];
-    let restaurantName = `${randomName}'s ${randomFoodType} ${randomStoreType}`;
+    let restaurantName = `${randomName} ${randomFoodType} ${randomStoreType}`;
 
     let queryString = `INSERT INTO restaurants (restaurant_name) VALUES ('${restaurantName}')`;
     connection.query(queryString, (err, data) => {
@@ -29,7 +29,7 @@ const populateRestaurants = () => {
 }
 
 const populateUsers = () => {
-  for (let i = 0; i <= 100; i++) {
+  for (let i = 0; i < 100; i++) {
     let userNames = ['Neon', 'Omega', 'Kookaburra', 'RagingBull', 'Asylum', 'Flurry', 'Ollie', 'Scoobie', 'Brave', 'Guaymas', 'Pinochio', 'Danana', 'Pepita', 'Padila', 'Ninja', 'Bonza'];
     let randomIndex = randomNumberGenerator(0, userNames.length);
     let userName = userNames[randomIndex];
@@ -37,7 +37,7 @@ const populateUsers = () => {
     let userFriends = randomNumberGenerator(0, 1000);
     let userReviews = randomNumberGenerator(0, 1000);
 
-    let queryString = `INSERT INTO users (user_name, user_profile_url, user_friends, user_reviews) VALUES ('${userName}', '${userURL}, '${userFriends}', '${userReviews}')`;
+    let queryString = `INSERT INTO users (user_name, user_profile_url, user_friends, user_reviews) VALUES ('${userName}', '${userUrl}', '${userFriends}', '${userReviews}')`;
     connection.query(queryString, (err, data) => {
       if(err) {
         console.log('error in populating the users table: ', err);
@@ -54,9 +54,9 @@ const populateRestaurantPhotos = () => {
   let months = ['01', '03', '05', '06', '10'];
   let days = ['1', '10', '14', '18', '22'];
 
-  for (let i = 0; i < 100; i++) {
-    let randomNum = randomNumberGenerator(0, 20);
-    for (let j = 0; j < randomNum.length; j++) {
+  for (let i = 1; i <= 100; i++) {
+    let randomNum = randomNumberGenerator(0, 20); // random generate bet 0 and 20 photos per restaurant
+    for (let j = 0; j < randomNum; j++) {
       let randomIndex = randomNumberGenerator(0, photoDescriptions.length);
       let description = photoDescriptions[randomIndex];
       let dateIndex = randomNumberGenerator(0, 5); // up to 4
@@ -65,6 +65,7 @@ const populateRestaurantPhotos = () => {
       let randomUserId = randomNumberGenerator(0, 100);
 
       let queryString = `INSERT INTO photos (title, photo_date, photo_url, restaurant_id, user_id) VALUES ('${description}','${date}', '${photoUrl}', '${i}', '${randomUserId}')`;
+      console.log(queryString);
       connection.query(queryString, (err, data) => {
         if(err) {
           console.log('error in populating the photos table: ', err);
