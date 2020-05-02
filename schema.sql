@@ -1,9 +1,8 @@
+-- To create database and tables, run mysql -u root -p < schema.sql
 -- For testing purposes drop DATABASE before reloading it
 DROP DATABASE IF EXISTS gallery;
 CREATE DATABASE gallery;
 
-
--- To create database and tables, run mysql -u root -p < schema.sql
 USE gallery;
 
 CREATE TABLE restaurants (
