@@ -1,0 +1,5 @@
+.image-slide {
+  background-image: url("https://loremflickr.com/320/240/foods");
+  background-size: 'cover';
+  background-position: 'center';
+}
