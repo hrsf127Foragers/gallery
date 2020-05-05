@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 
 app.get('/photos', controller.getAllPhotos);
 
+app.get('/restaurants/:restaurant_id/photos', controller.getPhotosByRestaurantID);
+
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });

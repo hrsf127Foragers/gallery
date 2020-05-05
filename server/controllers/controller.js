@@ -11,6 +11,18 @@ const getAllPhotos = (req, res) => {
   })
 }
 
+const getPhotosByRestaurantID = (req, res) => {
+  // console.log("req.params: ", req.params);
+  model.getPhotosByRestaurantID(req.params, (err, result) => {
+    if (err) {
+      console.log('error from getPhotosByRestaurantID server: ', err);
+      res.status(500);
+    } else {
+      res.status(200).json(result);
+    }
+  })
+}
 module.exports = {
-  getAllPhotos
+  getAllPhotos,
+  getPhotosByRestaurantID
 }

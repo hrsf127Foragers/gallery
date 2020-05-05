@@ -1,8 +1,8 @@
 const db = require('../database.js');
 
-function getAllPhotos(callback) {
+const getAllPhotos = (callback) => {
   let queryString = 'SELECT * FROM photos';
-  db.query(queryString, function(err, data) {
+  db.query(queryString, (err, data) => {
     if (err) {
       console.log('error from getAllPhotos model: ', err);
     } else {
@@ -11,6 +11,19 @@ function getAllPhotos(callback) {
   })
 }
 
+const getPhotosByRestaurantID = (params, callback) => {
+  console.log('Params: ', params);
+  let queryString = `SELECT * FROM photos WHERE restaurant_id=${params.restaurant_id}`;
+  db.query(queryString, (err, data) => {
+    if (err) {
+      console.log('error from getPhotosByRestaurantID model: ', err);
+    } else {
+      callback(null, data);
+    }
+  })
+}
+
 module.exports = {
-  getAllPhotos
+  getAllPhotos,
+  getPhotosByRestaurantID
 }
