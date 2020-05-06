@@ -12,7 +12,7 @@ const getAllPhotos = (callback) => {
 }
 
 const getPhotosByRestaurantID = (params, callback) => {
-  console.log('Params: ', params);
+  // console.log('Params: ', params);
   let queryString = `SELECT * FROM photos WHERE restaurant_id=${params.restaurant_id}`;
   db.query(queryString, (err, data) => {
     if (err) {

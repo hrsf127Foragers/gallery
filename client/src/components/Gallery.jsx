@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from './Carousel.jsx';
+import {mount, shallow} from 'enzyme';
 
 class Gallery extends React.Component {
   constructor(props) {
