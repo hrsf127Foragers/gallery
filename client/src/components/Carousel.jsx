@@ -3,10 +3,14 @@ import CarouselImage from './CarouselImage.jsx';
 import Arrow from './Arrow.jsx';
 
 const Carousel = (props) => {
+  console.log(props.mainPhoto);
   return(
     <div className="carousel">
       <Arrow direction="left" glyph="&#9664;" clickFunction={props.carouselLeftArrowClick} />
-        <CarouselImage imageUrl={props.imageUrl}/>
+        {/* {props.photos.map((photos, index) => {
+          return <CarouselImage key={index} photo={photo} />
+        })} */}
+        <CarouselImage mainPhoto={props.mainPhoto} />
       <Arrow direction="right" glyph="&#9654;" clickFunction={props.carouselRightArrowClick}/>
     </div>
   )
