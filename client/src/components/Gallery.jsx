@@ -1,57 +1,52 @@
 import React from 'react';
 import Carousel from './Carousel.jsx';
 
-const testImages = ['https://loremflickr.com/320/240/foods?random=1',
-'https://loremflickr.com/320/240/foods?random=2', 'https://loremflickr.com/320/240/foods?random=3', 'https://loremflickr.com/320/240/foods?random=4', 'https://loremflickr.com/320/240/foods=5', 'https://loremflickr.com/320/240/foods?random=6', 'https://loremflickr.com/320/240/foods?random=7', 'https://loremflickr.com/320/240/foods?random=8', 'https://loremflickr.com/320/240/foods?random=9', 'https://loremflickr.com/320/240/foods?random=10']
+const testImages = ['https://loremflickr.com/320/240/foods?lock=1',
+'https://loremflickr.com/320/240/foods?lock=2', 'https://loremflickr.com/320/240/foods?lock=3', 'https://loremflickr.com/320/240/foods?lock=4', 'https://loremflickr.com/320/240/foods?lock=5', 'https://loremflickr.com/320/240/foods?lock=6', 'https://loremflickr.com/320/240/foods?lock=7', 'https://loremflickr.com/320/240/foods?lock=8', 'https://loremflickr.com/320/240/foods?lock=9', 'https://loremflickr.com/320/240/foods?lock=10']
 
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
+    this.carouselRef = React.createRef();
     this.state = {
       photos: testImages,
-      mainPhoto: testImages[0],
-      mainPhotoIndex: 0,
-      carouselBeginIndex: 0, // use later for array of photos
-      carouselEndIndex: 3
+      carouselXPosition: 0
     }
     this.carouselLeftArrowClick = this.carouselLeftArrowClick.bind(this);
     this.carouselRightArrowClick = this.carouselRightArrowClick.bind(this);
   }
 
+  componentDidMount() {
+  }
+
   carouselLeftArrowClick() {
-    // console.log('left');
-    let mainPhotoIndex = this.state.mainPhotoIndex;
-    let firstPhoto = mainPhotoIndex === 0;
-    let index = firstPhoto ? 0 : mainPhotoIndex - 1;
-    this.setState({
-      mainPhotoIndex: index
-    }, () => {
+    let carouselXPosition = this.state.carouselXPosition;
+    if (carouselXPosition === 0) {
+      return;
+    } else {
+      let updatedCarouselXPosition = carouselXPosition - 1200; // moves back 4 images
       this.setState({
-        mainPhoto: testImages[this.state.mainPhotoIndex]
-      })
-    })
+        carouselXPosition: updatedCarouselXPosition
+      }, () => {this.carouselRef.current.scroll({left: this.state.carouselXPosition, behavior: 'smooth'})});
+    }
   }
 
   carouselRightArrowClick() {
-    // console.log('right');
-    let lastIndex = this.state.photos.length - 1;
-    let mainPhotoIndex = this.state.mainPhotoIndex;
-    let lastPhoto = mainPhotoIndex === lastIndex;
-    let index = lastPhoto ? lastIndex : mainPhotoIndex + 1;
-    this.setState({
-      mainPhotoIndex: index
-    }, () => {
+    let carouselXPosition = this.state.carouselXPosition;
+    let endOfPhotos = Math.floor(this.state.photos.length/4) * 1200;
+    if (carouselXPosition === endOfPhotos) {
+      return;
+    } else {
+      let updatedCarouselXPosition = carouselXPosition + 1200; // moves forward 4 images
       this.setState({
-        mainPhoto: testImages[this.state.mainPhotoIndex]
-      })
-    })
+        carouselXPosition: updatedCarouselXPosition
+      }, () => {this.carouselRef.current.scroll({left: this.state.carouselXPosition, behavior: 'smooth'})});
+    }
   }
 
   render() {
     return (
-      <div className="carousel">
-        <Carousel photos={this.state.photos} mainPhoto={this.state.mainPhoto} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick}/>
-      </div>
+        <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} ref={this.carouselRef}/>
     )
   }
 }
