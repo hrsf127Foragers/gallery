@@ -1,9 +1,22 @@
-.image-slide {
-  background-image: url("https://loremflickr.com/320/240/foods");
-  background-size: 'cover';
-  background-position: 'center';
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 1200px;
+  overflow-x: scroll;
+}
+
+.image {
+  height: 200px;
+  width: 300px;
+  margin: 1px;
 }
 
 .slide-arrow {
-  display: inline-block;
+  color: gray;
 }
