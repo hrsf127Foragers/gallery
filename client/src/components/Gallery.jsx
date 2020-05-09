@@ -37,11 +37,11 @@ class Gallery extends React.Component {
 
   carouselRightArrowClick() {
     let carouselXPosition = this.state.carouselXPosition;
-    let endOfPhotos = Math.floor(this.state.photos.length/4) * 1200;
+    let endOfPhotos = Math.floor(this.state.photos.length/4) * 1208;
     if (carouselXPosition === endOfPhotos) {
       return;
     } else {
-      let updatedCarouselXPosition = carouselXPosition + 1200; // moves forward 4 images
+      let updatedCarouselXPosition = carouselXPosition + 1208; // moves forward 4 images
       this.setState({
         carouselXPosition: updatedCarouselXPosition
       }, () => {this.carouselRef.current.scroll({left: this.state.carouselXPosition, behavior: 'smooth'})});
@@ -49,14 +49,13 @@ class Gallery extends React.Component {
   }
 
   handleCarouselPictureClick() {
-    console.log('hola');
+    console.log('click');
     this.setState({
       showModal: true
     })
   }
 
   handleModalCloseButtonClick () {
-    console.log('hi');
     this.setState({
       showModal: false
     })
@@ -66,7 +65,7 @@ class Gallery extends React.Component {
     return (
       <div>
         <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
-        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.showModal} />
+        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} />
       </div>
     )
   }
