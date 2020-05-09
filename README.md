@@ -1,24 +1,23 @@
-# gallery 
-## photo gallery mciro service of Yelp restaurant listing page  
-### built out front end with minimal backend
+# gallery
 
-### Framework require
-#### Server: Node.js/Express
+The photo gallery micro service of a Yelp restaurant listing page. Since this is a front-end focused project, the front-end is fully built-out with a minimal backend.
 
-#### Database: MySQL
+## Built With
 
-#### Front-end: React.js
+* React.js - front-end framework
+* Node.js/Express - server/middleware
+* MySQL - database
 
-## Startup Instructions
+## Getting Started
 
-### To compile your react files using webpack
+### To compile your react files using webpack:
 
-```#!/bin/bash
+```
 npm run react-dev
 ```
 
-### To start the app with a node server
+### To start the app with a node server:
 
-```#!/bin/bash
+```
 npm start
 ```

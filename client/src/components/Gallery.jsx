@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from './Carousel.jsx';
+import Modal from './Modal.jsx';
 
 const testImages = ['https://loremflickr.com/320/240/foods?lock=1',
 'https://loremflickr.com/320/240/foods?lock=2', 'https://loremflickr.com/320/240/foods?lock=3', 'https://loremflickr.com/320/240/foods?lock=4', 'https://loremflickr.com/320/240/foods?lock=5', 'https://loremflickr.com/320/240/foods?lock=6', 'https://loremflickr.com/320/240/foods?lock=7', 'https://loremflickr.com/320/240/foods?lock=8', 'https://loremflickr.com/320/240/foods?lock=9', 'https://loremflickr.com/320/240/foods?lock=10']
@@ -10,10 +11,13 @@ class Gallery extends React.Component {
     this.carouselRef = React.createRef();
     this.state = {
       photos: testImages,
-      carouselXPosition: 0
+      carouselXPosition: 0,
+      showModal: false
     }
     this.carouselLeftArrowClick = this.carouselLeftArrowClick.bind(this);
     this.carouselRightArrowClick = this.carouselRightArrowClick.bind(this);
+    this.handleCarouselPictureClick = this.handleCarouselPictureClick.bind(this);
+    this.handleModalCloseButtonClick = this.handleModalCloseButtonClick.bind(this);
   }
 
   componentDidMount() {
@@ -44,9 +48,24 @@ class Gallery extends React.Component {
     }
   }
 
+  handleCarouselPictureClick() {
+    this.setState({
+      showModal: true
+    })
+  }
+
+  handleModalCloseButtonClick () {
+    this.setState({
+      showModal: false
+    })
+  }
+
   render() {
     return (
+      <div>
         <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} ref={this.carouselRef}/>
+        <Modal handleModalCloseButtonClick={this.handleModalCloseButtonClick} handleCarouselPictureClick={this.handleCarouselPictureClick}/>
+      </div>
     )
   }
 }
