@@ -3,7 +3,7 @@ import React from 'react';
 const ModalImage = (props) => {
   return (
     <div>
-      <img className="modal-image" src={props.photos[0]}></img>
+      <img className="modal-image" src={props.modalPhoto}></img>
     </div>
   )
 }

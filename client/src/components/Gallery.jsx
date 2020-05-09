@@ -12,7 +12,9 @@ class Gallery extends React.Component {
     this.state = {
       photos: testImages,
       carouselXPosition: 0,
-      showModal: false
+      showModal: false,
+      photoId: null,
+      modalPhoto: null
     }
     this.carouselLeftArrowClick = this.carouselLeftArrowClick.bind(this);
     this.carouselRightArrowClick = this.carouselRightArrowClick.bind(this);
@@ -28,7 +30,7 @@ class Gallery extends React.Component {
     if (carouselXPosition === 0) {
       return;
     } else {
-      let updatedCarouselXPosition = carouselXPosition - 1200; // moves back 4 images
+      let updatedCarouselXPosition = carouselXPosition - 1208; // moves back 4 images
       this.setState({
         carouselXPosition: updatedCarouselXPosition
       }, () => {this.carouselRef.current.scroll({left: this.state.carouselXPosition, behavior: 'smooth'})});
@@ -48,10 +50,17 @@ class Gallery extends React.Component {
     }
   }
 
-  handleCarouselPictureClick() {
-    console.log('click');
+  handleCarouselPictureClick(e) {
+    // console.log(e.target.id);
+    let clickedPhotoId = e.target.id;
     this.setState({
-      showModal: true
+      showModal: true,
+      photoId: clickedPhotoId
+    }, () => {
+      let photoToDisplay = this.state.photos[this.state.photoId];
+      this.setState({
+        modalPhoto: photoToDisplay
+      })
     })
   }
 
@@ -65,7 +74,7 @@ class Gallery extends React.Component {
     return (
       <div>
         <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
-        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} />
+        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto}/>
       </div>
     )
   }
