@@ -12,15 +12,17 @@ class Gallery extends React.Component {
     this.state = {
       photos: testImages,
       carouselXPosition: 0,
-      showModal: false
+      showModal: false,
+      photoId: null,
+      modalPhoto: null
     }
     this.carouselLeftArrowClick = this.carouselLeftArrowClick.bind(this);
     this.carouselRightArrowClick = this.carouselRightArrowClick.bind(this);
     this.handleCarouselPictureClick = this.handleCarouselPictureClick.bind(this);
     this.handleModalCloseButtonClick = this.handleModalCloseButtonClick.bind(this);
-  }
+    this.handleModalLeftArrowClick = this.handleModalLeftArrowClick.bind(this);
+    this.handleModalRightArrowClick = this.handleModalRightArrowClick.bind(this);
 
-  componentDidMount() {
   }
 
   carouselLeftArrowClick() {
@@ -28,7 +30,7 @@ class Gallery extends React.Component {
     if (carouselXPosition === 0) {
       return;
     } else {
-      let updatedCarouselXPosition = carouselXPosition - 1200; // moves back 4 images
+      let updatedCarouselXPosition = carouselXPosition - 1208; // moves back 4 images
       this.setState({
         carouselXPosition: updatedCarouselXPosition
       }, () => {this.carouselRef.current.scroll({left: this.state.carouselXPosition, behavior: 'smooth'})});
@@ -37,34 +39,50 @@ class Gallery extends React.Component {
 
   carouselRightArrowClick() {
     let carouselXPosition = this.state.carouselXPosition;
-    let endOfPhotos = Math.floor(this.state.photos.length/4) * 1200;
+    let endOfPhotos = Math.floor(this.state.photos.length/4) * 1208;
     if (carouselXPosition === endOfPhotos) {
       return;
     } else {
-      let updatedCarouselXPosition = carouselXPosition + 1200; // moves forward 4 images
+      let updatedCarouselXPosition = carouselXPosition + 1208; // moves forward 4 images
       this.setState({
         carouselXPosition: updatedCarouselXPosition
       }, () => {this.carouselRef.current.scroll({left: this.state.carouselXPosition, behavior: 'smooth'})});
     }
   }
 
-  handleCarouselPictureClick() {
+  handleCarouselPictureClick(e) {
+    // console.log(e.target.id);
+    let clickedPhotoId = e.target.id;
     this.setState({
-      showModal: true
+      showModal: true,
+      photoId: clickedPhotoId
+    }, () => {
+      let photoToDisplay = this.state.photos[this.state.photoId];
+      this.setState({
+        modalPhoto: photoToDisplay
+      })
     })
   }
 
-  handleModalCloseButtonClick () {
+  handleModalCloseButtonClick() {
     this.setState({
       showModal: false
     })
   }
 
+  handleModalLeftArrowClick() {
+    console.log('left');
+  }
+
+  handleModalRightArrowClick() {
+    console.log('right');
+  }
+
   render() {
     return (
       <div>
-        <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} ref={this.carouselRef}/>
-        <Modal handleModalCloseButtonClick={this.handleModalCloseButtonClick} handleCarouselPictureClick={this.handleCarouselPictureClick}/>
+        <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
+        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick}/>
       </div>
     )
   }
