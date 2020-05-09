@@ -49,12 +49,14 @@ class Gallery extends React.Component {
   }
 
   handleCarouselPictureClick() {
+    console.log('hola');
     this.setState({
       showModal: true
     })
   }
 
   handleModalCloseButtonClick () {
+    console.log('hi');
     this.setState({
       showModal: false
     })
@@ -63,8 +65,8 @@ class Gallery extends React.Component {
   render() {
     return (
       <div>
-        <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} ref={this.carouselRef}/>
-        <Modal handleModalCloseButtonClick={this.handleModalCloseButtonClick} handleCarouselPictureClick={this.handleCarouselPictureClick}/>
+        <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
+        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.showModal} />
       </div>
     )
   }
