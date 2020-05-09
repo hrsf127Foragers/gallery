@@ -1,11 +1,9 @@
 import React from 'react';
 
-const ModalImage = (props) => {
+const ModalGalleryImage = (props) => {
   return (
-    <div>
       <img className="modal-image" src={props.modalPhoto}></img>
-    </div>
   )
 }
 
-export default ModalImage;
+export default ModalGalleryImage;

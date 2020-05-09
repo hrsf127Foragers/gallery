@@ -20,9 +20,9 @@ class Gallery extends React.Component {
     this.carouselRightArrowClick = this.carouselRightArrowClick.bind(this);
     this.handleCarouselPictureClick = this.handleCarouselPictureClick.bind(this);
     this.handleModalCloseButtonClick = this.handleModalCloseButtonClick.bind(this);
-  }
+    this.handleModalLeftArrowClick = this.handleModalLeftArrowClick.bind(this);
+    this.handleModalRightArrowClick = this.handleModalRightArrowClick.bind(this);
 
-  componentDidMount() {
   }
 
   carouselLeftArrowClick() {
@@ -64,17 +64,25 @@ class Gallery extends React.Component {
     })
   }
 
-  handleModalCloseButtonClick () {
+  handleModalCloseButtonClick() {
     this.setState({
       showModal: false
     })
+  }
+
+  handleModalLeftArrowClick() {
+    console.log('left');
+  }
+
+  handleModalRightArrowClick() {
+    console.log('right');
   }
 
   render() {
     return (
       <div>
         <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
-        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto}/>
+        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick}/>
       </div>
     )
   }
