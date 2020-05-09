@@ -5,10 +5,14 @@
   align-items: center
 }
 
-.carousel-wrapper {
+.image-wrapper {
   display: flex;
   width: 1200px;
   overflow-x: scroll;
+}
+
+.image-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .image {
@@ -55,19 +59,22 @@
   border-radius: 6px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 
 .modal-photo-gallery {
   display: flex;
   width: 70%;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .modal-image {
   display: inline-block;
+  height: 750px;
+  width: 1000px;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .modal-arrow-left {
@@ -77,7 +84,7 @@
 
 .modal-arrow-right {
   color: white;
-  transform: translateX(20px);
+  transform: translateX(-20px);
 }
 .close-button {
   position: absolute;

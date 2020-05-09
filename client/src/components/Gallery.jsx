@@ -51,7 +51,6 @@ class Gallery extends React.Component {
   }
 
   handleCarouselPictureClick(e) {
-    // console.log(e.target.id);
     let clickedPhotoId = e.target.id;
     this.setState({
       showModal: true,
@@ -72,10 +71,32 @@ class Gallery extends React.Component {
 
   handleModalLeftArrowClick() {
     console.log('left');
+    let photoId = this.state.photoId;
+    if(photoId >= 1) {
+      this.setState({
+        photoId: photoId - 1
+      }, () => {
+        let photoToDisplay = this.state.photos[this.state.photoId];
+        this.setState({
+          modalPhoto: photoToDisplay
+        })
+      })
+    }
   }
 
   handleModalRightArrowClick() {
     console.log('right');
+    let photoId = this.state.photoId;
+    if(photoId < this.state.photos.length) {
+      this.setState({
+        photoId: photoId + 1
+      }, () => {
+        let photoToDisplay = this.state.photos[this.state.photoId];
+        this.setState({
+          modalPhoto: photoToDisplay
+        })
+      })
+    }
   }
 
   render() {
