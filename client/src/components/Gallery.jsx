@@ -9,12 +9,14 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.carouselRef = React.createRef();
+    this.sliderRef = React.createRef();
     this.state = {
       photos: testImages,
       carouselXPosition: 0,
       showModal: false,
       photoId: null,
-      modalPhoto: null
+      modalPhoto: null,
+      sliderYPosition: 0
     }
     this.carouselLeftArrowClick = this.carouselLeftArrowClick.bind(this);
     this.carouselRightArrowClick = this.carouselRightArrowClick.bind(this);
@@ -52,14 +54,16 @@ class Gallery extends React.Component {
 
   handleCarouselPictureClick(e) {
     let clickedPhotoId = Number(e.target.id);
+    let updatedSliderYPosition = clickedPhotoId * 150;
     this.setState({
       showModal: true,
-      photoId: clickedPhotoId
+      photoId: clickedPhotoId,
+      sliderYPosition: updatedSliderYPosition
     }, () => {
       let photoToDisplay = this.state.photos[this.state.photoId];
       this.setState({
-        modalPhoto: photoToDisplay
-      })
+        modalPhoto: photoToDisplay,
+      }, () => {this.sliderRef.current.scroll({top: this.state.sliderYPosition})});
     })
   }
 
@@ -98,7 +102,6 @@ class Gallery extends React.Component {
   }
 
   handleSliderClick(e) {
-    // console.log(typeof e.target.id);
     let clickedPhotoId = Number(e.target.id);
     this.setState({
       photoId: clickedPhotoId
@@ -114,7 +117,7 @@ class Gallery extends React.Component {
     return (
       <div>
         <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
-        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} photoId={this.state.photoId} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick} handleSliderClick={this.handleSliderClick}/>
+        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} photoId={this.state.photoId} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick} handleSliderClick={this.handleSliderClick} ref={this.sliderRef}/>
       </div>
     )
   }

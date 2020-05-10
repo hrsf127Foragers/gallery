@@ -111,6 +111,13 @@
   color: #2b273c;
 }
 
+.slider-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
 .modal-slider-image {
   height: 200px;
   width: 300px;
