@@ -98,7 +98,6 @@
   display: flex;
   width: 30%;
   flex-direction: column;
-  align-items: center;
   background: white;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -108,26 +107,30 @@
   font: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight: 700;
   color: #2b273c;
+  text-align: left;
 }
 
 .slider-image-wrapper {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   overflow-y: scroll;
 }
 
 .modal-slider-image {
   height: 200px;
-  width: 300px;
+  width: 47%;
   max-height: 100%;
-  max-width: 85%;
+  max-width: 100%;
   margin: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 3px solid transparent;
+  display: inline-block;
 }
 
 .modal-slider-image.highlight {
   border: 3px solid #0097ec;
   opacity: .6;
+}
+
+.modal-slider-image:nth-child(3n+1) {
+  width: 100%;
 }
