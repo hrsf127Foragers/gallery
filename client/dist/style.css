@@ -15,7 +15,7 @@
   display: none;
 }
 
-.image {
+.carousel-image {
   height: 200px;
   width: 300px;
   margin: 1px;
@@ -93,4 +93,26 @@
   right: 10%;
   font-weight: 350;
   font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.modal-slider-container {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  /* justify-content: center; */
+  background: white;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.restaurant-name {
+  font: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  color: #2b273c;
+}
+
+.modal-slider-image {
+  height: 200px;
+  width: 300px;
+  margin: 1px;
 }

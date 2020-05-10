@@ -2,7 +2,9 @@ import React from 'react';
 
 const ModalSliderImage = (props) => {
   return (
-    <div>Hi from Slider Image</div>
+    <div>
+      <img className="modal-slider-image" src={props.photo}></img>
+    </div>
   )
 }
 
