@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
 .carousel-container {
   display: flex;
   flex-direction: row;
@@ -61,17 +64,39 @@
   flex-direction: row;
 }
 
+.close-button {
+  position: absolute;
+  color: white;
+  top: 0;
+  top: -5%;
+  left: 95%;
+  font-weight: 350;
+  font-family: "Open Sans";
+}
+
+.modal-left-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.modal-right-wrapper {
+  display: flex;
+  width: 30%;
+}
+
 .modal-photo-gallery {
   display: flex;
-  width: 70%;
+  width: 100%;
+  height: 100%;
   justify-content: space-evenly;
   align-items: center;
 }
 
 .modal-image {
   display: inline-block;
-  height: 750px;
-  width: 1000px;
+  height: 100%;
+  width: 80%;
   max-height: 100%;
   max-width: 100%;
 }
@@ -85,18 +110,20 @@
   color: white;
   transform: translateX(-20px);
 }
-.close-button {
+
+.photo-description-wrapper {
+  display: block;
+  background: white;
   position: absolute;
+  bottom: 0;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
-  top: 0;
-  right: 10%;
-  font-weight: 350;
-  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .modal-slider-container {
   display: flex;
-  width: 30%;
+  width: 100%;
   flex-direction: column;
   background: white;
   border-top-right-radius: 6px;
@@ -104,26 +131,25 @@
 }
 
 .restaurant-name {
-  font: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: "Open Sans";
   font-weight: 700;
   color: #2b273c;
   text-align: left;
+  padding-left: 5px;
 }
 
 .slider-image-wrapper {
-  align-items: center;
   overflow-y: scroll;
+  width: 98%;
+  margin: 4px;
 }
 
 .modal-slider-image {
   height: 200px;
-  width: 47%;
-  max-height: 100%;
-  max-width: 100%;
+  width: 47.2%;
   margin: 2px;
   border-radius: 6px;
   border: 3px solid transparent;
-  display: inline-block;
 }
 
 .modal-slider-image.highlight {
@@ -132,5 +158,5 @@
 }
 
 .modal-slider-image:nth-child(3n+1) {
-  width: 100%;
+  width: 97%;
 }
