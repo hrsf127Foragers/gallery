@@ -9,7 +9,7 @@ const Modal = React.forwardRef((props, ref) => {
       <div className="close-button" onClick={props.handleModalCloseButtonClick}>Close X</div>
         <div className="modal-container">
         <ModalGallery photos={props.photos} modalPhoto={props.modalPhoto} handleModalLeftArrowClick={props.handleModalLeftArrowClick} handleModalRightArrowClick={props.handleModalRightArrowClick}/>
-        <ModalSlider photos={props.photos} handleSliderClick={props.handleSliderClick} ref={ref}/>
+        <ModalSlider photos={props.photos} photoId={props.photoId} handleSliderClick={props.handleSliderClick} ref={ref}/>
       </div>
     </div>
   )
