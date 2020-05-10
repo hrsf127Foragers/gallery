@@ -6,7 +6,7 @@ const ModalSlider = (props) => {
     <div className="modal-slider-container">
       <div className="restaurant-name">Photos for Taco Boys</div>
       {props.photos.map((photo, index) => {
-        return <ModalSliderImage key={index} id={index} photo={photo} />
+        return <ModalSliderImage key={index} id={index} photo={photo} handleSliderClick={props.handleSliderClick} />
       })}
     </div>
   )

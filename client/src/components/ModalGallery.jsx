@@ -6,7 +6,7 @@ const ModalGallery = (props) => {
   return (
     <div className="modal-photo-gallery">
       <ModalGalleryArrow direction="left" clickFunction={props.handleModalLeftArrowClick} glyph="&#10094;"/>
-      <ModalGalleryImage photos={props.photos} modalPhoto={props.modalPhoto} />
+      <ModalGalleryImage photos={props.photos} modalPhoto={props.modalPhoto} handleSliderClick={props.handleSliderClick}/>
       <ModalGalleryArrow direction="right" clickFunction={props.handleModalRightArrowClick} glyph="&#10095;"/>
     </div>
   )

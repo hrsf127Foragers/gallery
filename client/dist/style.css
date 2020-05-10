@@ -51,8 +51,8 @@
 .modal-container {
   position: absolute;
   background: black;
-  width: 80%;
-  height: 95%;
+  width: 95%;
+  height: 80%;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -99,7 +99,7 @@
   display: flex;
   width: 30%;
   flex-direction: column;
-  /* justify-content: center; */
+  align-items: center;
   background: white;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -114,5 +114,8 @@
 .modal-slider-image {
   height: 200px;
   width: 300px;
-  margin: 1px;
+  max-height: 100%;
+  max-width: 85%;
+  margin: 2px;
+  border-radius: 4px;
 }
