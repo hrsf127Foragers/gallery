@@ -22,7 +22,6 @@ class Gallery extends React.Component {
     this.handleModalCloseButtonClick = this.handleModalCloseButtonClick.bind(this);
     this.handleModalLeftArrowClick = this.handleModalLeftArrowClick.bind(this);
     this.handleModalRightArrowClick = this.handleModalRightArrowClick.bind(this);
-
   }
 
   carouselLeftArrowClick() {
@@ -51,7 +50,7 @@ class Gallery extends React.Component {
   }
 
   handleCarouselPictureClick(e) {
-    let clickedPhotoId = e.target.id;
+    let clickedPhotoId = Number(e.target.id);
     this.setState({
       showModal: true,
       photoId: clickedPhotoId
@@ -70,9 +69,8 @@ class Gallery extends React.Component {
   }
 
   handleModalLeftArrowClick() {
-    console.log('left');
     let photoId = this.state.photoId;
-    if(photoId >= 1) {
+    if(photoId > 0) {
       this.setState({
         photoId: photoId - 1
       }, () => {
@@ -85,15 +83,14 @@ class Gallery extends React.Component {
   }
 
   handleModalRightArrowClick() {
-    console.log('right');
     let photoId = this.state.photoId;
-    if(photoId < this.state.photos.length) {
+    if(photoId < this.state.photos.length - 1) {
       this.setState({
-        photoId: photoId + 1
+        photoId: this.state.photoId + 1
       }, () => {
         let photoToDisplay = this.state.photos[this.state.photoId];
         this.setState({
-          modalPhoto: photoToDisplay
+          modalPhoto: this.state.photos[this.state.photoId]
         })
       })
     }
@@ -103,7 +100,7 @@ class Gallery extends React.Component {
     return (
       <div>
         <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
-        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick}/>
+        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} photoId={this.state.photoId} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick}/>
       </div>
     )
   }
