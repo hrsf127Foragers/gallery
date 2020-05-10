@@ -2,7 +2,7 @@ import React from 'react';
 import ModalGalleryImage from './ModalGalleryImage.jsx';
 import ModalGalleryArrow from './ModalGalleryArrow.jsx';
 
-const ModalPhotoGallery = (props) => {
+const ModalGallery = (props) => {
   return (
     <div className="modal-photo-gallery">
       <ModalGalleryArrow direction="left" clickFunction={props.handleModalLeftArrowClick} glyph="&#10094;"/>
@@ -12,4 +12,4 @@ const ModalPhotoGallery = (props) => {
   )
 }
 
-export default ModalPhotoGallery;
+export default ModalGallery;

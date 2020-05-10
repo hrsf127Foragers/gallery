@@ -1,5 +1,6 @@
 import React from 'react';
-import ModalPhotoGallery from './ModalPhotoGallery.jsx';
+import ModalGallery from './ModalGallery.jsx';
+import ModalSlider from './ModalSlider.jsx';
 
 const Modal = (props) => {
   const showClassName = props.showModal ? "modal display-block" : "modal display-none";
@@ -7,7 +8,8 @@ const Modal = (props) => {
     <div className={showClassName}>
       <div className="close-button" onClick={props.handleModalCloseButtonClick}>Close X</div>
         <div className="modal-container">
-        <ModalPhotoGallery photos={props.photos} modalPhoto={props.modalPhoto} handleModalLeftArrowClick={props.handleModalLeftArrowClick} handleModalRightArrowClick={props.handleModalRightArrowClick}/>
+        <ModalGallery photos={props.photos} modalPhoto={props.modalPhoto} handleModalLeftArrowClick={props.handleModalLeftArrowClick} handleModalRightArrowClick={props.handleModalRightArrowClick}/>
+        <ModalSlider photos={props.photos}/>
       </div>
     </div>
   )
