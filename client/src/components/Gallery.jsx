@@ -62,8 +62,10 @@ class Gallery extends React.Component {
     }, () => {
       let photoToDisplay = this.state.photos[this.state.photoId];
       this.setState({
-        modalPhoto: photoToDisplay,
-      }, () => {this.sliderRef.current.scroll({top: this.state.sliderYPosition})});
+        modalPhoto: photoToDisplay
+      }, () => {
+        this.sliderRef.current.scroll({top: this.state.sliderYPosition});
+      })
     })
   }
 
@@ -75,13 +77,17 @@ class Gallery extends React.Component {
 
   handleModalLeftArrowClick() {
     let photoId = this.state.photoId;
+    let updatedSliderYPosition = this.state.sliderYPosition - 200;
     if(photoId > 0) {
       this.setState({
-        photoId: photoId - 1
+        photoId: photoId - 1,
+        sliderYPosition: updatedSliderYPosition
       }, () => {
         let photoToDisplay = this.state.photos[this.state.photoId];
         this.setState({
           modalPhoto: photoToDisplay
+        }, () => {
+          this.sliderRef.current.scroll({top: this.state.sliderYPosition});
         })
       })
     }
@@ -89,13 +95,17 @@ class Gallery extends React.Component {
 
   handleModalRightArrowClick() {
     let photoId = this.state.photoId;
+    let updatedSliderYPosition = this.state.sliderYPosition + 200;
     if(photoId < this.state.photos.length - 1) {
       this.setState({
-        photoId: this.state.photoId + 1
+        photoId: this.state.photoId + 1,
+        sliderYPosition: updatedSliderYPosition
       }, () => {
         let photoToDisplay = this.state.photos[this.state.photoId];
         this.setState({
-          modalPhoto: this.state.photos[this.state.photoId]
+          modalPhoto: photoToDisplay
+        }, () => {
+          this.sliderRef.current.scroll({top: this.state.sliderYPosition})
         })
       })
     }
