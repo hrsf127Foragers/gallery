@@ -1,0 +1,30 @@
+x create Modal component
+x opens by clicking picture on carousel
+  x create handle click function
+x display modal when picture clicked
+x close button to make disapper
+x photo gallery component to scroll thru photos
+  x properly display clicked picture
+  x displays main picture on the left
+  x can scroll left and right thru pictures
+x right slider to scroll thru photos up and down
+  x displays picture gallery on the right
+  x click on picture and it will display on the left
+  x can scroll up and down
+  x main picture is highlighted in blue and in sync with modal picture
+  x when user scrolls thru left modal gallery, right modal gallery should scroll in sync
+x photo description
+  x display date of picture
+  x displays reviewer
+  x displays caption
+x helpful and not helpful buttons highlight when clicked
+x share button
+  - opens Modal
+x flag button
+  - opens Modal
+- implement css modules
+- render live data
+- handle displaying of arrows at ends on modal gallery
+- handle dispalying of arrows at ends on carousel gallery
+
+
