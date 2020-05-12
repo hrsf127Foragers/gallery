@@ -22,15 +22,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: 'css-loader',
-        query: {
-          modules: true,
-          localIdentName: '[name]__[local]__[hash:base64:5]'
-        }
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            }
+          }
+        ]
       }
     ]
   }
