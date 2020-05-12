@@ -1,9 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 import Carousel from './Carousel.jsx';
 import Modal from './Modal.jsx';
-
-const testImages = ['https://loremflickr.com/320/240/foods?lock=1',
-'https://loremflickr.com/320/240/foods?lock=2', 'https://loremflickr.com/320/240/foods?lock=3', 'https://loremflickr.com/320/240/foods?lock=4', 'https://loremflickr.com/320/240/foods?lock=5', 'https://loremflickr.com/320/240/foods?lock=6', 'https://loremflickr.com/320/240/foods?lock=7', 'https://loremflickr.com/320/240/foods?lock=8', 'https://loremflickr.com/320/240/foods?lock=9', 'https://loremflickr.com/320/240/foods?lock=10']
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -11,7 +9,8 @@ class Gallery extends React.Component {
     this.carouselRef = React.createRef();
     this.sliderRef = React.createRef();
     this.state = {
-      photos: testImages,
+      data: [],
+      photos: [],
       carouselXPosition: 0,
       showModal: false,
       photoId: null,
@@ -25,6 +24,25 @@ class Gallery extends React.Component {
     this.handleModalLeftArrowClick = this.handleModalLeftArrowClick.bind(this);
     this.handleModalRightArrowClick = this.handleModalRightArrowClick.bind(this);
     this.handleSliderClick = this.handleSliderClick.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get('/restaurants/100/photos')
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          data: response.data
+        }, () => {
+          let photosArray = [];
+          this.state.data.forEach((item) => {
+            photosArray.push(item.photo_url);
+          })
+          this.setState({
+            photos: photosArray
+          })
+        })
+      })
+      .catch((err) => console.log(err));
   }
 
   carouselLeftArrowClick() {
