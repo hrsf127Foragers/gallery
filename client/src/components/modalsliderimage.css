@@ -7,18 +7,11 @@
   cursor: pointer;
 }
 
-.modal_slider_image:nth-child(3n+1) {
-  width: 97%;
-}
-
-.modal_slider_image_highlight {
-  height: 200px;
-  width: 47.2%;
-  margin: .25%;
-  border-radius: 6px;
-  border: 3px solid transparent;
-  cursor: pointer;
+.highlight {
   border: 3px solid #0097ec;
   opacity: .6;
 }
 
+.modal_slider_image:nth-child(3n+1) {
+  width: 97%;
+}
