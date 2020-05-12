@@ -17,6 +17,7 @@
   "author": "Servio Lee",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.0",
     "mysql": "^2.13.0",

@@ -22,7 +22,20 @@ const getPhotosByRestaurantID = (req, res) => {
     }
   })
 }
+
+const getRestaurantNameByID = (req, res) => {
+  model.getRestaurantNameByID(req.params, (err, result) => {
+    if (err) {
+      console.log('error from getRestaurantNameByID server: ', err);
+      res.status(500);
+    } else {
+      res.status(200).json(result);
+    }
+  })
+}
+
 module.exports = {
   getAllPhotos,
-  getPhotosByRestaurantID
+  getPhotosByRestaurantID,
+  getRestaurantNameByID
 }

@@ -23,7 +23,19 @@ const getPhotosByRestaurantID = (params, callback) => {
   })
 }
 
+const getRestaurantNameByID = (params, callback) => {
+  let queryString = `SELECT * FROM restaurants WHERE id=${params.restaurant_id}`;
+  db.query(queryString, (err, data) => {
+    if (err) {
+      console.log('error from getRestaurantNameByID model: ', err);
+    } else {
+      callback(null, data);
+    }
+  })
+}
+
 module.exports = {
   getAllPhotos,
-  getPhotosByRestaurantID
+  getPhotosByRestaurantID,
+  getRestaurantNameByID
 }

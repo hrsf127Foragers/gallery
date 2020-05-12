@@ -6,7 +6,7 @@ const ModalSlider = React.forwardRef((props, ref) => {
   return (
     <div className={styles.modal_slider_container}>
       <div className={styles.restaurant_name}>
-        <h3>Photos for Taco Boys
+        <h3>Photos For {props.restaurantName}
         </h3>
       </div>
       <div className={styles.slider_image_wrapper} ref={ref}>

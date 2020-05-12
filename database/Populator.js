@@ -30,7 +30,7 @@ const populateRestaurants = () => {
 
 const populateUsers = () => {
   for (let i = 0; i < 100; i++) {
-    let userNames = ['Neon', 'Omega', 'Kookaburra', 'RagingBull', 'Asylum', 'Flurry', 'Ollie', 'Scoobie', 'Brave', 'Guaymas', 'Pinochio', 'Danana', 'Pepita', 'Padila', 'Ninja', 'Bonza'];
+    let userNames = ['Ken Y.', 'Omega S.', 'Johnny J.', 'Bald B.', 'Bison M.', 'Guile T.', 'Ollie C.', 'Scoobie D.', 'Brave H.', 'Rye T.', 'Chun L.', 'Blanka B.', 'Zangief K.', 'Dhalsim B.', 'Sagat P.', 'Vega B.', 'Charlie T.', 'Michael W.', 'Servio L.', 'Trevor P.'];
     let randomIndex = randomNumberGenerator(0, userNames.length);
     let userName = userNames[randomIndex];
     let userUrl = `https://yelp.com/users/${i}`;
@@ -61,7 +61,7 @@ const populateRestaurantPhotos = () => {
       let description = photoDescriptions[randomIndex];
       let dateIndex = randomNumberGenerator(0, 5); // up to 4
       let date = `${years[dateIndex]}-${months[dateIndex]}-${days[dateIndex]}`;
-      let photoUrl = `https://loremflickr.com/320/240/foods`;
+      let photoUrl = `https://loremflickr.com/320/240/fruits?lock=${j}`;
       let randomUserId = randomNumberGenerator(0, 100);
 
       let queryString = `INSERT INTO photos (title, photo_date, photo_url, restaurant_id, user_id) VALUES ('${description}','${date}', '${photoUrl}', '${i}', '${randomUserId}')`;
