@@ -27,4 +27,17 @@ x flag button
 - handle displaying of arrows at ends on modal gallery
 - handle dispalying of arrows at ends on carousel gallery
 
+    {
+        test: /\.css$/,
+        loader: 'style-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]__[hash:base64:5]'
+        }
+      }
+
 
