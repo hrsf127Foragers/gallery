@@ -1,0 +1,5 @@
+.carousel_arrow_right {
+  color: white;
+  transform: translateX(-20px);
+  cursor: pointer;
+}

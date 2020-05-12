@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.photo_description_wrapper {
+  font-family: Open Sans;
+  display: block;
+  background: white;
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.photo_caption {
+  font-size: 14px;
+  position: absolute;
+  left: 2%;
+  font-weight: 400;
+  padding-top: 7px;
+}
+
+.photo_date {
+  font-size: 14px;
+  position: relative;
+  left: 2%;
+  color: #757280;
+}
+
+.horizontal_line {
+  width: 96%;
+  margin: 0 auto;
+  opacity: .6;
+}

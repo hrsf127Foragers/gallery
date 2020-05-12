@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 body {
   font-family: "Open Sans";
-}
-.carousel-container {
+} */
+
+/* .carousel-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -15,29 +16,32 @@ body {
   display: flex;
   width: 1200px;
   overflow-x: scroll;
-}
+  cursor: pointer;
+} */
 
-.image-wrapper::-webkit-scrollbar {
+/* .image-wrapper::-webkit-scrollbar {
   display: none;
-}
+} */
 
-.carousel-image {
+/* .carousel-image {
   height: 200px;
   width: 300px;
   margin: 1px;
-}
+} */
 
-.slide-arrow-left {
+/* .slide-arrow-left {
   color: white;
   transform: translateX(20px);
+  cursor: pointer;
 }
 
 .slide-arrow-right {
   color: white;
   transform: translateX(-20px);
-}
+  cursor: pointer;
+} */
 
-.display-block {
+/* .display-block {
   display: block;
 }
 
@@ -53,9 +57,9 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   padding: 40px;
-}
+} */
 
-.modal-container {
+/* .modal-container {
   position: relative;
   background: black;
   width: 80%;
@@ -75,46 +79,49 @@ body {
   left: 95%;
   font-weight: 350;
   font-size: 14px;
-}
+  cursor: pointer;
+} */
 
-.modal-left-wrapper {
+/* .modal-left-wrapper {
   display: flex;
   flex-direction: column;
   width: 70%;
-}
+} */
 
-.modal-right-wrapper {
+/* .modal-right-wrapper {
   display: flex;
   width: 30%;
-}
+} */
 
-.modal-photo-gallery {
+/* .modal-photo-gallery {
   display: flex;
   width: 100%;
   height: 100%;
   justify-content: space-evenly;
   align-items: center;
-}
+} */
 
-.modal-image {
+/* .modal-image {
   display: inline-block;
   height: auto;
   width: 100%;
   max-height: 100%;
   max-width: 100%;
-}
+} */
 
-.modal-arrow-left {
+/* .modal-arrow-left {
   color: white;
   transform: translateX(20px);
+  cursor: pointer;
 }
 
 .modal-arrow-right {
   color: white;
   transform: translateX(-20px);
-}
+  cursor: pointer;
+} */
 
-.photo-description-wrapper {
+/* .photo-description-wrapper {
   display: block;
   background: white;
   position: absolute;
@@ -122,9 +129,9 @@ body {
   width: 70%;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-}
+} */
 
-.modal-slider-container {
+/* .modal-slider-container {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -145,14 +152,15 @@ body {
   overflow-y: scroll;
   width: 98%;
   margin: 4px;
-}
+} */
 
-.modal-slider-image {
+/* .modal-slider-image {
   height: 200px;
   width: 47.2%;
-  margin: 2px;
+  margin: .25%;
   border-radius: 6px;
   border: 3px solid transparent;
+  cursor: pointer;
 }
 
 .modal-slider-image.highlight {
@@ -162,8 +170,9 @@ body {
 
 .modal-slider-image:nth-child(3n+1) {
   width: 97%;
-}
-.photo-caption {
+} */
+
+/* .photo-caption {
   font-size: 14px;
   position: absolute;
   left: 2%;
@@ -176,14 +185,10 @@ body {
   position: relative;
   left: 2%;
   color: #757280;
-}
+} */
 
-.reviewer {
-  position: relative;
-  padding: 2px;
-}
 
-.fas .fa-user-friends {
+/* .fas .fa-user-friends {
   font-size: 16px;
   color: red;
 }
@@ -199,17 +204,24 @@ body {
 
 .fas .fa-flag {
   font-size: 18px;
-}
+} */
 
-.avatar {
+/* .reviewer-container {
   padding: 10px;
 }
 
+.reviewer-wrapper {
+  position: relative;
+  padding: 2px;
+}
+
 .reviewer-name {
+  font-family: "Open Sans";
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   color: #fff;
+  cursor: pointer;
 }
 
 .profile-pic {
@@ -219,6 +231,7 @@ body {
   margin-right: 4px;
   padding: 6px;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .friends-emoji {
@@ -238,18 +251,20 @@ body {
   font-weight: 400;
   display: inline;
   padding: 4px;
-}
+} */
 
-.share-button {
+/* .share-button {
   background: transparent;
   color: #757280;
   border: none;
+  cursor: pointer;
 }
 
 .report-button {
   background: transparent;
   color: #757280;
   border: none;
+  cursor: pointer;
 }
 
 .share-button:hover {
@@ -275,6 +290,7 @@ body {
   font-size: 12px;
   border-radius: 3px;
   line-height: 16px;
+  cursor: pointer;
 }
 
 .helpful-button .fas {
@@ -284,10 +300,10 @@ body {
 .helpful-button:hover {
   color: black;
   background: white;
-}
+} */
 
-.horizontal-line {
+/* .horizontal-line {
   width: 96%;
   margin: 0 auto;
   opacity: .6;
-}
+} */

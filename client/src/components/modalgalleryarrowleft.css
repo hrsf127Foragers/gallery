@@ -1,0 +1,5 @@
+.modal_arrow_left {
+  color: white;
+  transform: translateX(20px);
+  cursor: pointer;
+}

@@ -1,0 +1,52 @@
+.share_button {
+  background: transparent;
+  color: #757280;
+  border: none;
+  cursor: pointer;
+}
+
+.report_button {
+  background: transparent;
+  color: #757280;
+  border: none;
+  cursor: pointer;
+}
+
+.share_button:hover {
+  color: white;
+}
+
+.reportbutton:hover {
+  color: white;
+}
+
+.buttons_container {
+  position: absolute;
+  top: 47%;
+  left: 71%;
+}
+
+.helpful_button {
+  margin: 3px;
+  padding: 10px;
+  background: transparent;
+  color: #757280 ;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 3px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.arrow_up {
+  margin-right: 3px;
+}
+
+.arrow_down {
+  margin-right: 3px;
+}
+
+.helpful_button:hover {
+  color: black;
+  background: white;
+}

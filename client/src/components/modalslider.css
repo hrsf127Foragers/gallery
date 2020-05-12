@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.modal_slider_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background: white;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.restaurant_name {
+  font-family: "Open Sans";
+  font-weight: 700;
+  color: #2b273c;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.slider_image_wrapper {
+  overflow-y: scroll;
+  width: 98%;
+  margin: 4px;
+}
