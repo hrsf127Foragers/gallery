@@ -5,7 +5,7 @@ import styles from './modalright.css';
 const ModalRight = React.forwardRef((props, ref) => {
   return (
     <div className={styles.modal_right_wrapper}>
-      <ModalSlider photos={props.photos} photoId={props.photoId} handleSliderClick={props.handleSliderClick} ref={ref}/>
+      <ModalSlider photos={props.photos} photoId={props.photoId} restaurantName={props.restaurantName} handleSliderClick={props.handleSliderClick} ref={ref}/>
     </div>
   )
 })

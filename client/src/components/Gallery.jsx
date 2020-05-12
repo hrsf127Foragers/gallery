@@ -15,7 +15,8 @@ class Gallery extends React.Component {
       showModal: false,
       photoId: null,
       modalPhoto: null,
-      sliderYPosition: 0
+      sliderYPosition: 0,
+      restaurantName: ''
     }
     this.carouselLeftArrowClick = this.carouselLeftArrowClick.bind(this);
     this.carouselRightArrowClick = this.carouselRightArrowClick.bind(this);
@@ -27,22 +28,24 @@ class Gallery extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/restaurants/100/photos')
-      .then((response) => {
-        console.log(response.data);
-        this.setState({
-          data: response.data
-        }, () => {
-          let photosArray = [];
-          this.state.data.forEach((item) => {
-            photosArray.push(item.photo_url);
-          })
-          this.setState({
-            photos: photosArray
-          })
-        })
+    axios
+    .get('/restaurants/100/photos')
+    .then((response) => {
+        // console.log(response.data);
+      this.setState({data: response.data})
+    })
+    .then((response) => {
+      let photosArray = [];
+      this.state.data.forEach((item) => {
+        photosArray.push(item.photo_url);
       })
-      .catch((err) => console.log(err));
+      this.setState({photos: photosArray});
+      return axios.get('/restaurants/100');
+    })
+    .then((response) => {
+      console.log(response.data);
+      this.setState({restaurantName: response.data[0].restaurant_name})
+    }).catch((err) => console.log(err));
   }
 
   carouselLeftArrowClick() {
@@ -72,7 +75,7 @@ class Gallery extends React.Component {
 
   handleCarouselPictureClick(e) {
     let clickedPhotoId = Number(e.target.id);
-    let updatedSliderYPosition = clickedPhotoId * 150;
+    let updatedSliderYPosition = clickedPhotoId * 125;
     this.setState({
       showModal: true,
       photoId: clickedPhotoId,
@@ -145,7 +148,7 @@ class Gallery extends React.Component {
     return (
       <div>
         <Carousel photos={this.state.photos} carouselLeftArrowClick={this.carouselLeftArrowClick} carouselRightArrowClick={this.carouselRightArrowClick} handleCarouselPictureClick={this.handleCarouselPictureClick} ref={this.carouselRef} />
-        <Modal photos={this.state.photos} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} photoId={this.state.photoId} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick} handleSliderClick={this.handleSliderClick} ref={this.sliderRef}/>
+        <Modal photos={this.state.photos} restaurantName={this.state.restaurantName} handleModalCloseButtonClick={this.handleModalCloseButtonClick} showModal={this.state.showModal} modalPhoto={this.state.modalPhoto} photoId={this.state.photoId} handleModalLeftArrowClick={this.handleModalLeftArrowClick} handleModalRightArrowClick={this.handleModalRightArrowClick} handleSliderClick={this.handleSliderClick} ref={this.sliderRef}/>
       </div>
     )
   }

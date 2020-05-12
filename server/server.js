@@ -11,6 +11,8 @@ app.get('/photos', controller.getAllPhotos);
 
 app.get('/restaurants/:restaurant_id/photos', controller.getPhotosByRestaurantID);
 
+app.get('/restaurants/:restaurant_id', controller.getRestaurantNameByID);
+
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
