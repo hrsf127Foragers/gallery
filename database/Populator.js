@@ -28,9 +28,10 @@ const populateRestaurants = () => {
   }
 }
 
+let userNames = ['Ken Y.', 'Omega S.', 'Johnny J.', 'Bald B.', 'Bison M.', 'Guile T.', 'Ollie C.', 'Scoobie D.', 'Brave H.', 'Rye T.', 'Chun L.', 'Blanka B.', 'Zangief K.', 'Dhalsim B.', 'Sagat P.', 'Vega B.', 'Charlie T.', 'Michael W.', 'Servio L.', 'Trevor P.'];
+
 const populateUsers = () => {
   for (let i = 0; i < 100; i++) {
-    let userNames = ['Ken Y.', 'Omega S.', 'Johnny J.', 'Bald B.', 'Bison M.', 'Guile T.', 'Ollie C.', 'Scoobie D.', 'Brave H.', 'Rye T.', 'Chun L.', 'Blanka B.', 'Zangief K.', 'Dhalsim B.', 'Sagat P.', 'Vega B.', 'Charlie T.', 'Michael W.', 'Servio L.', 'Trevor P.'];
     let randomIndex = randomNumberGenerator(0, userNames.length);
     let userName = userNames[randomIndex];
     let userUrl = `https://yelp.com/users/${i}`;

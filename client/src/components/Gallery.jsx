@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Carousel from './Carousel.jsx';
 import Modal from './Modal.jsx';
+import data from '../mockData.js';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Gallery extends React.Component {
 
   componentDidMount() {
     axios
-    .get('/restaurants/100/photos')
+    .get(`/restaurants/100/photos`)
     .then((response) => {
         // console.log(response.data);
       this.setState({data: response.data})
@@ -40,10 +41,10 @@ class Gallery extends React.Component {
         photosArray.push(item.photo_url);
       })
       this.setState({photos: photosArray});
-      return axios.get('/restaurants/100');
+      return axios.get(`/restaurants/100`);
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.setState({restaurantName: response.data[0].restaurant_name})
     }).catch((err) => console.log(err));
   }
