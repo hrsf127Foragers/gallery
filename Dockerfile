@@ -10,6 +10,6 @@ RUN npm install
 
 EXPOSE 3000
 
-CMD ["npm", "react-dev"]
+CMD ["npm", "run", "react-dev"]
 
 CMD ["npm", "start"]
