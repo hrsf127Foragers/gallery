@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -d",
+    "react-dev": "webpack -p",
     "start": "sleep 10 && node server/server.js",
     "seed": "node database/Populator.js",
     "test": "jest"
