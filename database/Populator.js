@@ -56,7 +56,7 @@ const populateRestaurantPhotos = () => {
   let days = ['1', '10', '14', '18', '22'];
 
   for (let i = 1; i <= 100; i++) {
-    let randomNum = randomNumberGenerator(0, 20); // random generate bet 0 and 20 photos per restaurant
+    let randomNum = randomNumberGenerator(10, 20); // random generate bet 0 and 20 photos per restaurant
     for (let j = 0; j < randomNum; j++) {
       let randomIndex = randomNumberGenerator(0, photoDescriptions.length);
       let description = photoDescriptions[randomIndex];
